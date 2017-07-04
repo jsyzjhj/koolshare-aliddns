@@ -40,7 +40,7 @@
                 						<div style="float:left;" class="formfonttitle" style="padding-top: 12px">Aliddns - 设置</div>
 										<div style="float:right; width:15px; height:25px;margin-top:10px"><img id="return_btn" onclick="reload_Soft_Center();" align="right" style="cursor:pointer;position:absolute;margin-left:-30px;margin-top:-25px;" title="返回软件中心" src="/images/backprev.png" onMouseOver="this.src='/images/backprevclick.png'" onMouseOut="this.src='/images/backprev.png'"></img></div>
 										<div style="margin-left:5px;margin-top:10px;margin-bottom:10px"><img src="/images/New_ui/export/line_export.png"></div>
-										<div class="SimpleNote" id="head_illustrate"><i></i><em>Aliddns</em>是一款基于阿里云解析的私人ddns解决方案。<a href='http://koolshare.cn/thread-64703-1-1.html' target='_blank'><i>&nbsp;&nbsp;<u>点击查看插件详情</u></i></a></div>
+										<div class="SimpleNote" id="head_illustrate"><i></i><em>Aliddns</em>(multi domain edition by zhangckid)<a href='http://koolshare.cn/thread-64703-1-1.html' target='_blank'><i>&nbsp;&nbsp;<u>点击查看插件详情</u></i></a></div>
                 						<table style="margin:20px 0px 0px 0px;" width="100%" border="1" align="center" cellpadding="4" cellspacing="0" bordercolor="#6b8fa3" class="FormTable">
 											<thead>
 											<tr>
@@ -92,6 +92,30 @@
                 						            <input type="text" style="width: 4em" id="aliddns_name" placeholder="子域名" value="<% dbus_get_def("aliddns_name", "home"); %>" class="input_ss_table"
                 						            >.<input type="text"  id="aliddns_domain" placeholder="主域名" value="<% dbus_get_def("aliddns_domain", "example.com"); %>" class="input_ss_table">
                 						        </td>
+                						    <tr id="name_tr1">
+                						        <th>域名1</th>
+                						        <td>
+                						            <input type="text" style="width: 4em" id="aliddns_name1" placeholder="子域名" value="<% dbus_get_def("aliddns_name1", "home"); %>" class="input_ss_table"
+                						            >.<input type="text"  id="aliddns_domain1" placeholder="主域名" value="<% dbus_get_def("aliddns_domain1", "example.com"); %>" class="input_ss_table">
+                						        </td>
+                						    <tr id="name_tr2">
+                						        <th>域名2</th>
+                						        <td>
+                						            <input type="text" style="width: 4em" id="aliddns_name2" placeholder="子域名" value="<% dbus_get_def("aliddns_name2", "home"); %>" class="input_ss_table"
+                						            >.<input type="text"  id="aliddns_domain2" placeholder="主域名" value="<% dbus_get_def("aliddns_domain2", "example.com"); %>" class="input_ss_table">
+                						        </td>
+                						    <tr id="name_tr3">
+                						        <th>域名3</th>
+                						        <td>
+                						            <input type="text" style="width: 4em" id="aliddns_name3" placeholder="子域名" value="<% dbus_get_def("aliddns_name3", "home"); %>" class="input_ss_table"
+                						            >.<input type="text"  id="aliddns_domain3" placeholder="主域名" value="<% dbus_get_def("aliddns_domain3", "example.com"); %>" class="input_ss_table">
+                						        </td>
+                						    <tr id="name_tr4">
+                						        <th>域名4</th>
+                						        <td>
+                						            <input type="text" style="width: 4em" id="aliddns_name4" placeholder="子域名" value="<% dbus_get_def("aliddns_name4", "home"); %>" class="input_ss_table"
+                						            >.<input type="text"  id="aliddns_domain4" placeholder="主域名" value="<% dbus_get_def("aliddns_domain4", "example.com"); %>" class="input_ss_table">
+                						        </td>
                 						    </tr>
                 						    <tr id="dns_tr">
                 						        <th title="查询域名当前IP时使用的DNS解析服务器，默认为阿里云DNS">DNS服务器(?)</th>
@@ -135,7 +159,7 @@ $(function () {
     buildswitch();
     update_visibility();
     var posting = false;
-	var inputs = ['ak', 'sk', 'name', 'domain', 'interval', 'dns', 'curl', 'ttl'];
+	var inputs = ['ak', 'sk', 'name', 'domain', 'name1', 'domain1', 'name2', 'domain2', 'name3', 'domain3', 'name4', 'domain4','interval', 'dns', 'curl', 'ttl'];
     $('.button_gen').click(function () {
         if(posting) return;
         posting = true; // save
@@ -194,13 +218,20 @@ function update_visibility(){
 		document.getElementById("sk_tr").style.display = "";
 		document.getElementById("interval_tr").style.display = "";
 		document.getElementById("name_tr").style.display = "";
-		
+		document.getElementById("name_tr1").style.display = "";
+		document.getElementById("name_tr2").style.display = "";
+		document.getElementById("name_tr3").style.display = "";
+		document.getElementById("name_tr4").style.display = "";
 	}else{
 		document.getElementById("last_act_tr").style.display = "none";
 		document.getElementById("ak_tr").style.display = "none";
 		document.getElementById("sk_tr").style.display = "none";
 		document.getElementById("interval_tr").style.display = "none";
 		document.getElementById("name_tr").style.display = "none";
+		document.getElementById("name_tr1").style.display = "none";
+		document.getElementById("name_tr2").style.display = "none";
+		document.getElementById("name_tr3").style.display = "none";
+		document.getElementById("name_tr4").style.display = "none";
 	}
 }
 
