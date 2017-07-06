@@ -20,7 +20,13 @@ die () {
 
 ip=`$aliddns_curl 2>&1` || die "$ip"
 
-current_ip=`nslookup $aliddns_name.$aliddns_domain $aliddns_dns 2>&1`
+if [ "$aliddns_name" = "@" ]
+then
+    current_ip=`nslookup $aliddns_name $aliddns_dns 2>&1`
+else
+    current_ip=`nslookup $aliddns_name.$aliddns_domain $aliddns_dns 2>&1`
+fi
+
 current_ip1=`nslookup $aliddns_name1.$aliddns_domain1 $aliddns_dns 2>&1`
 current_ip2=`nslookup $aliddns_name2.$aliddns_domain2 $aliddns_dns 2>&1`
 current_ip3=`nslookup $aliddns_name3.$aliddns_domain3 $aliddns_dns 2>&1`
